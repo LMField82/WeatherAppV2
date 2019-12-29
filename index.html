@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="../WeatherAppV2/style.css">
+    <script src="https://kit.fontawesome.com/bafc1bb3f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    
+</head>
+<body>        
+    <header>
+        <h1 id="header">Weather Dashboard</h1> 
+    </header><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id="searchCities">
+                <div class="row">
+                    <div class="form-inline form-group">
+                        <h6>Search For a City:</h6>
+                        <input class="form-control" id="searchCity" type="text">
+                        <button type="submit" id="searchBtn"class="fas fa-search"></button>
+                    </div>        
+                </div>
+                <div class="row">
+                    <ul class="history prevSearch"></ul>
+                </div>
+            </div>
+            <div class="col-md-8" id="weather">
+                <div class="row">
+                    <div id="currentWeather">
+                    </div>
+                </div>
+                <div class="row five-day"><h5>5-Day Forecast:</h5></div>
+                <div class="row" id="forecastBox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Made with <a href="https://openweathermap.org/">Open Weather Map</a> API</span>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="script.js"></script>   
+</body>
+</html>
