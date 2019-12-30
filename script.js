@@ -10,46 +10,47 @@ console.log("here is something");
         console.log(searchValue);
         
     });   
-        
+    
     $(".history").on("click", "li", function() {
         searchWeather($(this).text());
-
+        
     });
-
+    
     function makeRow(searchValue) { 
-   $(".prevSearch").prepend($("<li>").addClass("list-group-item list-group-item-action").text(searchValue));
+        $(".prevSearch").prepend($("<li>").addClass("list-group-item list-group-item-action").text(searchValue));
         
     }     
-
-//city weather current and future       
-        function searchWeather (searchValue) {
-           $("#currentWeather").empty();
-
-          var queryURL =  "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&APPID=" + apiKey + "&units=imperial"
-           
-            $.ajax({
-                type: "GET", 
-                url: queryURL,
-                dataType: "json",
-                success: function(data) {
-                    
-                    //create history link for this search
-                    // if (history.indexOf(searchValue) != -1) {
+    
+    //city weather current and future       
+    function searchWeather (searchValue) {
+        $("#currentWeather").empty();
+        
+        var queryURL =  "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&APPID=" + apiKey + "&units=imperial"
+        
+        $.ajax({
+            type: "GET", 
+            url: queryURL,
+            dataType: "json",
+            success: function(data) {
+                
+                //create history link for this search
+                // if (history.indexOf(searchValue) != -1) {
                     //       history.push(searchValue);
                     //       window.localStorage.setItem(".history", JSON.stringify(history));
                     //       makeRow();
                     //       addButton();
                     //     }
                     // $("#searchBtn").on("click", "li", function(data) {
-                    //     searchWeather($(this).text());
-                    //     function addButton() {
-                
-                    //     $("<li>").addClass("prevSearch").prepend(searchValue);
-                    //     console.log("is this working?")
-                    //     $("#currentWeather").empty();
-                    //     } 
-                
-                        
+                        //     searchWeather($(this).text());
+                        //     function addButton() {
+                            
+                            //     $("<li>").addClass("prevSearch").prepend(searchValue);
+                            //     console.log("is this working?")
+                            //     $("#currentWeather").empty();
+                            //     } 
+                            
+                            
+                            window.localStorage.setItem("history", JSON.stringify(searchValue));
                         
                         
                     // });
@@ -71,7 +72,7 @@ console.log("here is something");
                         getUVIndex(data.coord.lat, data.coord.lon);
                         getForecast(searchValue);
                         makeRow(searchValue);
-                        
+
                     }   
                 
             });
@@ -118,7 +119,7 @@ console.log("here is something");
 
     }
 
-    var history = JSON.parse(window.localStorage.getItem(".history")) || [];
+    var history = JSON.parse(window.localStorage.getItem(".history"));
 
     if (history.length > 0) {
         searchWeather(history[history.length - 1])
